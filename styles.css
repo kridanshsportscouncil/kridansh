@@ -1,0 +1,169 @@
+:root{
+  --ink:#0F1720;
+  --royal:#0F4C81;
+  --forest:#1F6F50;
+  --charcoal:#1C1C1C;
+  --mist:#F8F9FA;
+  --line:#E7E9EC;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { color: var(--charcoal); background: #fff; margin: 0; }
+
+.f-display{ font-family:'Space Grotesk', sans-serif; }
+.f-body{ font-family:'Inter', sans-serif; }
+.f-util{ font-family:'Manrope', sans-serif; }
+
+::selection{ background: var(--royal); color:#fff; }
+
+/* ---------- Section-specific background treatments ---------- */
+.hero-bg{
+  background: radial-gradient(120% 100% at 15% 0%, #17263a 0%, var(--ink) 55%, #060a0f 100%);
+}
+.hero-overlay{
+    background: linear-gradient(180deg, rgba(6,10,15,.35) 0%, rgba(6,10,15,.55) 55%, rgba(6,10,15,.85) 100%);
+}
+.hero-placeholder{
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.04) 0, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 16px);
+  border: 1px dashed rgba(255,255,255,0.15);
+}
+.hero::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(0,0,0,.45) 0%,
+        rgba(0,0,0,.25) 45%,
+        rgba(0,0,0,.10) 100%
+    );
+    z-index: 1;
+}
+
+.hero > *{
+    position: relative;
+    z-index: 2;
+}
+.stats-bg{
+  background: linear-gradient(120deg, var(--ink), #14202c);
+}
+.join-bg{
+  background: linear-gradient(135deg, var(--royal), #0a3a63);
+}
+.stripe-bg{
+  background-image: repeating-linear-gradient(90deg,#fff 0,#fff 1px,transparent 1px,transparent 64px);
+}
+.stripe-bg-wide{
+  background-image: repeating-linear-gradient(90deg,#fff 0,#fff 1px,transparent 1px,transparent 80px);
+}
+.text-hero-accent{ color:#4C8FCB; }
+
+/* Signature "lane" clip-path motif — echoes a running-track lane line */
+.lane-clip{ clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%); }
+.lane-clip-b{ clip-path: polygon(0 12%, 100% 0, 100% 100%, 0 100%); }
+
+/* ---------- Scroll reveal ---------- */
+@keyframes revealUp{
+  from{ opacity:0; transform: translateY(28px); }
+  to{ opacity:1; transform: translateY(0); }
+}
+.reveal{ opacity:0; }
+.reveal.in{ animation: revealUp .7s cubic-bezier(.22,1,.36,1) forwards; }
+
+/* ---------- Ripple button effect ---------- */
+.ripple{ position:relative; overflow:hidden; }
+.ripple-el{
+  position:absolute; border-radius:9999px; background:rgba(255,255,255,.5);
+  transform:scale(0); animation:rippleAnim .6s linear; pointer-events:none;
+}
+@keyframes rippleAnim{ to{ transform:scale(4); opacity:0; } }
+
+/* ---------- Placeholder image blocks ---------- */
+.ph{
+  position:relative; width:100%; overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+  background: linear-gradient(135deg, var(--royal), #123a63);
+}
+.ph.tone-forest{ background: linear-gradient(135deg, var(--forest), #164f39); }
+.ph.tone-ink{ background: linear-gradient(135deg, #1c2733, var(--ink)); }
+.ph::before{
+  display: none;
+}
+.ph .ph-icon{ color: rgba(255,255,255,.7); position:relative; z-index:1; }
+.ph .ph-label{
+  position:absolute; bottom:12px; left:12px; right:12px; z-index:1;
+  font-family:'Manrope',sans-serif; font-size:10px; letter-spacing:.15em;
+  text-transform:uppercase; color: rgba(255,255,255,.6);
+}
+.ph img{ width:100%; height:100%; object-fit:cover; }
+
+/* ---------- Star rating fill (targets Lucide's inner <path> directly,
+   since an inherited style can't beat the icon's own fill="none" attribute) ---------- */
+.icon-star-filled, .icon-star-filled path{ fill:#F5B301; stroke:#F5B301; }
+.icon-star-empty, .icon-star-empty path{ fill:none; stroke:#D9DCE1; }
+
+/* ---------- Admin mode ---------- */
+body.has-admin-ribbon #scroll-top{ bottom: 4.75rem; }
+#event-form-content, #admin-login-modal, #event-form-modal{ scrollbar-width: thin; }
+
+/* ---------- Misc ---------- */
+.line-clamp-2{
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+}
+.no-scrollbar::-webkit-scrollbar{ display:none; }
+.no-scrollbar{ -ms-overflow-style:none; scrollbar-width:none; }
+
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity:1 !important; animation:none !important; }
+  html{ scroll-behavior:auto !important; }
+}
+
+/* ---------- Preloader ---------- */
+.preloader{
+  position: fixed; inset: 0; z-index: 9999;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
+  background: radial-gradient(120% 100% at 50% 0%, #17263a 0%, var(--ink) 60%, #060a0f 100%);
+  transition: opacity .5s ease, visibility .5s ease;
+}
+.preloader.preloader-hide{ opacity: 0; visibility: hidden; pointer-events: none; }
+.preloader-ring{
+  position: relative; width: 90px; height: 90px;
+  border-radius: 50%;
+  border: 3px solid rgba(255,255,255,0.12);
+  border-top-color: var(--royal);
+  border-right-color: var(--forest);
+  display: flex; align-items: center; justify-content: center;
+  animation: preloader-spin 3s linear infinite;
+}
+.preloader-logo{
+  width: 62px; height: 62px; border-radius: 50%; object-fit: cover;
+  animation: preloader-pulse 1.4s ease-in-out infinite;
+}
+.preloader-text{
+  color: #fff; font-weight: 700; font-size: 14px; letter-spacing: .35em; text-transform: uppercase;
+  animation: preloader-text-fade 1.6s ease-in-out infinite;
+}
+.preloader-bar{
+  width: 140px; height: 3px; border-radius: 2px; background: rgba(255,255,255,0.12); overflow: hidden;
+}
+.preloader-bar span{
+  display: block; height: 100%; width: 0%; background: linear-gradient(90deg, var(--royal), var(--forest));
+  animation: preloader-fill 2.4s ease forwards;
+}
+@keyframes preloader-spin{ to{ transform: rotate(360deg); } }
+@keyframes preloader-pulse{ 0%,100%{ transform: scale(1); } 50%{ transform: scale(1.08); } }
+@keyframes preloader-text-fade{
+  0%, 100% { opacity: .4; letter-spacing: .35em; }
+  50%      { opacity: 1;  letter-spacing: .45em; }
+}
+@keyframes preloader-fill{ from{ width: 0%; } to{ width: 100%; } }
+
+.no-scrollbar{
+  scrollbar-width: none;       /* Firefox */
+  -ms-overflow-style: none;    /* old Edge/IE */
+}
+.no-scrollbar::-webkit-scrollbar{
+  display: none;               /* Chrome, Safari, new Edge */
+}

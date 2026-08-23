@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- ============================================================================
+     SEO — the one placeholder to change: your real live URL.
+     Search-and-replace "https://YOUR-DOMAIN-HERE.com" everywhere it appears in
+     this file with your actual domain once you've deployed (e.g. Netlify/GitHub
+     Pages URL, or your own domain). It's used below for canonical + OG/Twitter tags.
+     ============================================================================ -->
+
+<title>KRIDANSH Sports Club | Graphic Era Hill University Sports Council</title>
+<meta name="description" content="KRIDANSH is the official sports club of Graphic Era Hill University, Dehradun — organizing inter-department tournaments in cricket, football, basketball, volleyball, badminton, athletics and more. Empowering Athletes. Building Champions. Creating Legacy." />
+<meta name="keywords" content="KRIDANSH, Graphic Era Hill University, GEHU sports club, GEHU Dehradun, college sports club, university sports council, inter-department tournament, student athletics Dehradun" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://mayankcoder69.github.io/kridanshsportscouncilgehu/" />
+
+<!-- Open Graph (Facebook, LinkedIn, WhatsApp link previews, etc.) -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="KRIDANSH Sports Club" />
+<meta property="og:title" content="KRIDANSH Sports Club | Graphic Era Hill University" />
+<meta property="og:description" content="Official sports club of Graphic Era Hill University — events, achievements, and the council behind them. Empowering Athletes. Building Champions. Creating Legacy." />
+<meta property="og:url" content="https://mayankcoder69.github.io/kridanshsportscouncilgehu/" />
+<meta property="og:image" content="https://mayankcoder69.github.io/kridanshsportscouncilgehu/images/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<!-- Twitter/X card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="KRIDANSH Sports Club | Graphic Era Hill University" />
+<meta name="twitter:description" content="Official sports club of Graphic Era Hill University — events, achievements, and the council behind them." />
+<meta name="twitter:image" content="https://mayankcoder69.github.io/kridanshsportscouncilgehu/images/og-image.jpg" />
+
+<meta name="theme-color" content="#0F1720" />
+<link rel="icon" type="image/png" href="images/favicon.png" />
+
+<!-- Structured data — helps Google understand this is a real organization and can
+     enable richer search results (logo, social links, sitelinks search box, etc.) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SportsOrganization",
+  "name": "KRIDANSH Sports Club",
+  "url": "https://mayankcoder69.github.io/kridanshsportscouncilgehu/",
+  "logo": "https://mayankcoder69.github.io/kridanshsportscouncilgehu/images/logo.png",
+  "description": "Official sports club of Graphic Era Hill University, Dehradun, organizing inter-department tournaments across cricket, football, basketball, volleyball, badminton, athletics and more.",
+  "parentOrganization": {
+    "@type": "CollegeOrUniversity",
+    "name": "Graphic Era Hill University",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dehradun",
+      "addressRegion": "Uttarakhand",
+      "addressCountry": "IN"
+    }
+  },
+  "sameAs": []
+}
+</script>
+
+<!-- Fonts -->
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind (Play CDN — JIT runtime that supports tailwind.config, custom colors,
+     arbitrary-value classes, and a MutationObserver that picks up classes added by JS
+     after page load). Do NOT swap this for a precompiled tailwind.min.css/js build —
+     those only include classes present in the file at build time and ignore config. -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#0F1720',
+            royal: '#0F4C81',
+            forest: '#1F6F50',
+            charcoal: '#1C1C1C',
+            mist: '#F8F9FA',
+            line: '#E7E9EC',
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Lucide icons (the "lucide" package, which ships the createIcons() JS API —
+     NOT "lucide-static", which is SVG files only and has no JS API at all) -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.383.0/dist/umd/lucide.min.js"></script>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="f-body">
+  <!-- ============================== EVENT AD POPUP ============================== -->
+  <div id="ad-popup" class="fixed inset-0 z-[200] hidden bg-black/70 backdrop-blur-sm p-4 overflow-y-auto no-scrollbar">
+    <button id="ad-popup-close"
+      class="fixed top-5 right-5 z-[210] h-10 w-10 rounded-full bg-white/90 backdrop-blur flex items-center justify-center hover:bg-white shadow-lg">
+      <i data-lucide="x" class="w-5 h-5 text-charcoal"></i>
+    </button>
+    <div class="relative bg-white/85 backdrop-blur-md rounded-3xl max-w-sm w-full shadow-2xl p-5 m-auto">
+      <div id="ad-popup-poster" class="w-full rounded-2xl overflow-hidden bg-mist"></div>
+      <div class="pt-5 px-1 pb-1">
+        <h3 id="ad-popup-title" class="f-display font-bold text-xl text-charcoal mb-2"></h3>
+        <p id="ad-popup-description"
+          class="f-body text-sm text-[#5B6472] leading-relaxed break-words whitespace-pre-line"></p>
+      </div>
+    </div>
+  </div>
+  <div id="preloader" class="preloader">
+    <div class="preloader-ring">
+      <img src="images/logo.png" alt="KRIDANSH" class="preloader-logo" />
+    </div>
+    <p class="preloader-text f-display">KRIDANSH</p>
+    <div class="preloader-bar"><span></span></div>
+  </div>
+  <!-- ============================== NAVBAR ============================== -->
+  <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
+    <div class="h-[3px] w-full bg-transparent">
+      <div id="scroll-progress" class="h-full bg-royal transition-[width] duration-150" style="width:0%"></div>
+    </div>
+    <nav class="max-w-7xl mx-auto px-6 lg:px-10 h-[72px] flex items-center justify-between">
+      <a href="#hero" class="flex items-center gap-3 group">
+        <!-- Logo slot. Drop your transparent logo in as images/logo.png and it appears here
+           automatically — the white circle badge keeps a transparent PNG readable against
+           both the dark hero and the solid white navbar. -->
+        <div id="logo-ring"
+          class="h-14 w-14 rounded-full bg-white shadow-sm flex items-center justify-center p-1 shrink-0 overflow-hidden">
+          <img id="navbar-logo" src="images/logo.png" alt="KRIDANSH Sports Club logo" class="w-full h-full object-cover"
+            onerror="this.style.display='none'; var p=document.getElementById('navbar-logo-placeholder'); p.classList.remove('hidden'); p.classList.add('flex');" />
+          <div id="navbar-logo-placeholder" class="hidden w-full h-full items-center justify-center text-[#B0B6BE]">
+            <i data-lucide="image" class="w-5 h-5"></i>
+          </div>
+        </div>
+        <div class="text-left leading-none">
+          <div id="brand-name" class="f-display font-bold text-[15px] tracking-tight text-#f3f4f6">KRIDANSH</div>
+          <div id="brand-sub" class="f-util text-[9px] tracking-[0.2em] uppercase text-white/70">Sports Club</div>
+        </div>
+      </a>
+      <div class="hidden lg:flex items-center gap-9" id="nav-links-desktop"></div>
+      <button id="menu-btn" class="lg:hidden p-2" aria-label="Toggle menu">
+        <i data-lucide="menu" id="menu-icon" class="text-white"></i>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="lg:hidden hidden bg-white border-t border-line px-6 py-6 flex-col gap-5"></div>
+  </header>
+
+  <!-- ============================== HERO ============================== -->
+  <section id="hero" class="relative min-h-screen flex items-end pb-28 lane-clip overflow-hidden hero-bg">
+    <!-- Campus banner photo. Drop your image in as images/college-hero.jpg (1920px+ wide
+       recommended) and it appears here automatically — the placeholder below only shows
+       until that file exists, then hides itself. -->
+    <img id="hero-banner" src="images/college-hero1.png" alt="Graphic Era Hill University campus"
+      class="absolute inset-0 w-full h-full object-cover"
+      onerror="this.style.display='none'; var p=document.getElementById('hero-banner-placeholder'); p.classList.remove('hidden'); p.classList.add('flex');" />
+    <div id="hero-banner-placeholder"
+      class="hidden absolute inset-0 flex-col items-center justify-center gap-3 hero-placeholder">
+      <i data-lucide="image" class="w-10 h-10 text-white/35"></i>
+      <span class="f-util text-[11px] tracking-[0.25em] uppercase text-white/40">Campus Banner Placeholder</span>
+      <span class="f-body text-[12px] text-white/25">Add your photo at images/college-hero.jpg</span>
+    </div>
+    <div class="absolute inset-0 hero-overlay"></div>
+    <div class="absolute inset-0 opacity-[0.05] stripe-bg"></div>
+    <div class="absolute -right-24 top-24 w-[520px] h-[520px] rounded-full blur-3xl opacity-20 bg-royal"></div>
+    <div class="absolute -left-32 bottom-0 w-[420px] h-[420px] rounded-full blur-3xl opacity-10 bg-forest"></div>
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-10 w-full pt-32">
+      <div class="reveal flex items-center gap-3 mb-8">
+        <span class="f-util text-[11px] tracking-[0.25em] uppercase text-white/60">Graphic Era Hill University</span>
+        <span class="h-1 w-1 rounded-full bg-white/40"></span>
+        <span class="f-util text-[11px] tracking-[0.25em] uppercase text-hero-accent">Est. 2023</span>
+      </div>
+      <h1
+        class="reveal f-display font-bold text-white leading-[0.95] text-[13vw] sm:text-[9vw] lg:text-[6.4vw] tracking-tight"
+        style="animation-delay:100ms">KRIDANSH</h1>
+      <h2 class="reveal f-display font-semibold text-white/80 text-2xl sm:text-3xl lg:text-4xl mt-1 tracking-tight"
+        style="animation-delay:180ms">Sports Club</h2>
+      <p class="reveal f-body text-white/60 text-base sm:text-lg mt-6 max-w-xl" style="animation-delay:260ms">
+        "Empowering Athletes. Building Champions. Creating Legacy."</p>
+      <div class="reveal flex flex-wrap gap-4 mt-10" style="animation-delay:340ms">
+        <button
+          class="ripple f-util text-sm font-bold uppercase tracking-wide px-7 py-4 rounded-full text-white bg-royal transition-transform hover:-translate-y-0.5"
+          data-goto="events">Explore Events</button>
+        <button
+          class="ripple f-util text-sm font-bold uppercase tracking-wide px-7 py-4 rounded-full border border-white/30 text-white transition-colors hover:bg-white/10"
+          data-goto="council">Meet the Council</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== ABOUT ============================== -->
+  <section id="about" class="bg-white py-28 lg:py-36">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-16 items-center">
+      <div class="reveal">
+        <div class="ph aspect-[4/5] rounded-2xl tone-ink" data-icon="users" data-label="Council in action"><img
+            src="images/trophy1.png" alt="KRIDANSH Sports Club" class="w-full h-full object-cover" /></div>
+      </div>
+      <div>
+        <div class="reveal">
+          <span class="f-util text-[11px] tracking-[0.25em] uppercase text-royal">About KRIDANSH</span>
+          <h2 class="f-display font-bold text-3xl sm:text-4xl mt-3 mb-6 text-charcoal">Where student athletes become
+            champions</h2>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-8" id="about-points"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== COUNCIL ============================== -->
+  <section id="council" class="py-28 lg:py-36 bg-mist">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="reveal flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
+        <div>
+          <span class="f-util text-[11px] tracking-[0.25em] uppercase text-royal">Leadership</span>
+          <h2 class="f-display font-bold text-3xl sm:text-4xl mt-3 text-charcoal">Meet Our Council</h2>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="relative">
+            <i data-lucide="search" class="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#8A93A0] w-4 h-4"></i>
+            <input id="council-search" placeholder="Search members…"
+              class="f-body text-sm pl-10 pr-4 py-2.5 rounded-full border border-line bg-white outline-none focus:border-royal w-full sm:w-56" />
+          </div>
+          <div id="council-admin-actions"></div>
+        </div>
+      </div>
+      <div class="reveal flex flex-wrap gap-2 mb-10" id="council-filters"></div>
+      <div id="council-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+      <p id="council-empty" class="f-body text-sm text-[#8A93A0] text-center py-16 hidden">No members match your search.
+      </p>
+    </div>
+  </section>
+
+  <!-- Council Member Add/Edit Form Modal (admin only) -->
+  <div id="council-form-modal"
+    class="fixed inset-0 z-[110] hidden items-start justify-center overflow-y-auto bg-black/60 backdrop-blur-sm p-4 sm:p-8">
+    <div id="council-form-content" class="bg-white rounded-3xl max-w-2xl w-full my-8 overflow-hidden"></div>
+  </div>
+
+  <!-- ============================== EVENTS ============================== -->
+  <section id="events" class="bg-white py-28 lg:py-36">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="reveal flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+        <div>
+          <span class="f-util text-[11px] tracking-[0.25em] uppercase text-royal">What's On</span>
+          <h2 class="f-display font-bold text-3xl sm:text-4xl mt-3 text-charcoal">Featured Events</h2>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="relative">
+            <i data-lucide="search" class="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#8A93A0] w-4 h-4"></i>
+            <input id="event-search" placeholder="Search events…"
+              class="f-body text-sm pl-10 pr-4 py-2.5 rounded-full border border-line w-full sm:w-64 outline-none focus:border-royal" />
+          </div>
+          <div id="events-admin-actions"></div>
+        </div>
+      </div>
+      <div class="reveal flex flex-wrap items-center gap-2 mb-4" id="event-status-filters"></div>
+      <div class="reveal flex flex-wrap gap-2 mb-10" id="event-filters"></div>
+      <div id="events-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7"></div>
+      <p id="events-empty" class="f-body text-sm text-[#8A93A0] text-center py-16 hidden">No events match your filters.
+      </p>
+    </div>
+  </section>
+
+  <!-- Event Modal -->
+  <div id="event-modal"
+    class="fixed inset-0 z-[100] hidden items-start justify-center overflow-y-auto bg-black/60 backdrop-blur-sm p-4 sm:p-8">
+    <div id="event-modal-content" class="bg-white rounded-3xl max-w-3xl w-full my-8 overflow-hidden"></div>
+  </div>
+  <!-- Event Gallery Lightbox -->
+  <div id="gallery-lightbox" class="fixed inset-0 z-[150] hidden items-center justify-center bg-black/90 p-4">
+    <button id="gallery-lightbox-close"
+      class="absolute top-5 right-5 h-10 w-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white">
+      <i data-lucide="x" class="w-5 h-5"></i>
+    </button>
+    <button id="gallery-lightbox-prev"
+      class="absolute left-3 sm:left-6 h-11 w-11 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white">
+      <i data-lucide="chevron-left" class="w-5 h-5"></i>
+    </button>
+    <img id="gallery-lightbox-img" src="" class="max-h-[85vh] max-w-full rounded-xl object-contain" />
+    <button id="gallery-lightbox-next"
+      class="absolute right-3 sm:right-6 h-11 w-11 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white">
+      <i data-lucide="chevron-right" class="w-5 h-5"></i>
+    </button>
+    <span id="gallery-lightbox-count" class="absolute bottom-5 f-util text-[12px] text-white/70"></span>
+  </div>
+
+  <!-- Event Add/Edit Form Modal (admin only) -->
+  <div id="event-form-modal"
+    class="fixed inset-0 z-[110] hidden items-start justify-center overflow-y-auto bg-black/60 backdrop-blur-sm p-4 sm:p-8">
+    <div id="event-form-content" class="bg-white rounded-3xl max-w-2xl w-full my-8 overflow-hidden"></div>
+  </div>
+
+  <!-- ============================== GALLERY ============================== -->
+  <section id="gallery-full" class="py-28 lg:py-36 bg-mist">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="reveal flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <div>
+          <span class="f-util text-[11px] tracking-[0.25em] uppercase text-royal">Memories</span>
+          <h2 id="gallery" class="f-display font-bold text-3xl sm:text-4xl mt-3 mb-8 scroll-mt-24 text-charcoal">Event
+            Gallery</h2>
+        </div>
+        <div id="gallery-admin-actions" class="mb-8"></div>
+      </div>
+      <div class="reveal flex flex-wrap gap-2 mb-10" id="gallery-filters"></div>
+      <div id="gallery-grid" class="columns-2 sm:columns-3 lg:columns-4 gap-4"></div>
+      <p id="gallery-empty" class="f-body text-sm text-[#8A93A0] text-center py-16 hidden">No photos yet — check back
+        soon.</p>
+    </div>
+    <div id="lightbox" class="fixed inset-0 z-[100] hidden bg-black/85 items-center justify-center p-6">
+      <button id="lightbox-close" class="absolute top-6 right-6 text-white"><i data-lucide="x"
+          class="w-7 h-7"></i></button>
+      <div class="max-w-lg w-full" id="lightbox-content"></div>
+    </div>
+  </section>
+
+  <!-- ============================== SPORTS OFFERED ============================== -->
+  <section id="sports" class="bg-white py-28 lg:py-36">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="reveal">
+        <span class="f-util text-[11px] tracking-[0.25em] uppercase text-royal">Programs</span>
+        <h2 class="f-display font-bold text-3xl sm:text-4xl mt-3 mb-12 text-charcoal">Sports Offered</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" id="sports-grid"></div>
+    </div>
+  </section>
+
+  <!-- ============================== ACHIEVEMENTS ============================== -->
+  <section id="achievements" class="py-28 lg:py-36 bg-mist">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="reveal flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+        <div>
+          <span class="f-util text-[11px] tracking-[0.25em] uppercase text-royal">Record Book</span>
+          <h2 class="f-display font-bold text-3xl sm:text-4xl mt-3 text-charcoal">Achievements</h2>
+        </div>
+        <div id="achievements-admin-actions"></div>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="achievements-grid"></div>
+    </div>
+  </section>
+
+  <!-- Achievement Add/Edit Form Modal (admin only) -->
+  <div id="achievement-form-modal"
+    class="fixed inset-0 z-[110] hidden items-start justify-center overflow-y-auto bg-black/60 backdrop-blur-sm p-4 sm:p-8">
+    <div id="achievement-form-content" class="bg-white rounded-3xl max-w-xl w-full my-8 overflow-hidden"></div>
+  </div>
+  <!-- Event Ad Add/Edit Form Modal (admin only) -->
+  <div id="ad-form-modal"
+    class="fixed inset-0 z-[210] hidden items-start justify-center overflow-y-auto bg-black/60 backdrop-blur-sm p-4 sm:p-8">
+    <div id="ad-form-content" class="bg-white rounded-3xl max-w-xl w-full my-8 overflow-hidden"></div>
+  </div>
+
+  <!-- ============================== CLOSING NOTE ============================== -->
+  <section class="bg-white py-28 lg:py-36">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <div class="reveal">
+        <span class="f-util text-[11px] tracking-[0.25em] uppercase text-royal">From The Council</span>
+        <h2 class="f-display font-bold text-3xl sm:text-4xl mt-3 mb-6 text-charcoal">Thank You for Visiting</h2>
+        <p class="f-body text-base text-[#5B6472] leading-relaxed max-w-xl mx-auto">
+          We're grateful you took the time to explore KRIDANSH. Every match, every medal, and every
+          member reflects the spirit that drives us forward.
+        </p>
+        <p class="f-display font-semibold text-lg sm:text-xl mt-8 text-royal">
+          "Empowering Athletes. Building Champions. Creating Legacy."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== STATS ============================== -->
+  <section class="relative py-28 lg:py-32 lane-clip-b overflow-hidden stats-bg">
+    <div class="absolute inset-0 opacity-[0.06] stripe-bg-wide"></div>
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="grid grid-cols-2 lg:grid-cols-6 gap-10" id="stats-grid"></div>
+    </div>
+  </section>
+
+  <!-- ============================== FOOTER ============================== -->
+  <footer class="pt-16 pb-8 bg-ink">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="grid sm:grid-cols-3 gap-10 pb-10 border-b border-white/10">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div
+              class="h-14 w-14 rounded-full bg-white shadow-sm flex items-center justify-center p-2 shrink-0 overflow-hidden">
+              <img src="images/logo.png" alt="KRIDANSH Sports Club logo" class="w-full h-full object-contain"
+                onerror="this.style.display='none'; var p=this.nextElementSibling; p.classList.remove('hidden'); p.classList.add('flex');" />
+              <div class="hidden w-full h-full items-center justify-center text-[#B0B6BE]">
+                <i data-lucide="image" class="w-5 h-5"></i>
+              </div>
+            </div>
+            <div class="leading-none">
+              <div class="f-display font-bold text-sm text-white">KRIDANSH</div>
+              <div class="f-util text-[9px] tracking-[0.2em] uppercase text-white/50">Sports Club</div>
+            </div>
+          </div>
+          <p class="f-body text-sm text-white/50 max-w-xs">Graphic Era Hill University's official student sports
+            council.</p>
+        </div>
+        <div>
+          <h4 class="f-util text-[11px] font-bold uppercase tracking-wide text-white/40 mb-4">Quick Links</h4>
+          <div class="grid grid-cols-2 gap-2.5" id="footer-links"></div>
+        </div>
+        <div>
+          <h4 class="f-util text-[11px] font-bold uppercase tracking-wide text-white/40 mb-4">Follow KRIDANSH</h4>
+          <div class="flex gap-3">
+            <a href="https://www.instagram.com/gehuhld_sports_official"
+              class="h-10 w-10 rounded-full flex items-center justify-center border border-white/15 hover:border-white/40 text-white/70 hover:text-white transition-colors"><i
+                data-lucide="instagram" class="w-4 h-4"></i></a>
+
+            <a href="mailto:kridanshsportscouncil@gmail.com"
+              class="h-10 w-10 rounded-full flex items-center justify-center border border-white/15 hover:border-white/40 text-white/70 hover:text-white transition-colors"><i
+                data-lucide="mail" class="w-4 h-4"></i></a>
+            <a href="https://chat.whatsapp.com/COtdhVdoNNYLWuttlfnvbC" target="_blank" rel="noopener"
+              class="h-10 w-10 rounded-full flex items-center justify-center border border-white/15 hover:border-white/40 text-white/70 hover:text-white transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor">
+                <path
+                  d="M12 0C5.373 0 0 5.373 0 12c0 2.125.555 4.121 1.527 5.848L0 24l6.304-1.654A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.983 0-3.826-.586-5.376-1.594l-.385-.243-3.741.982.998-3.648-.25-.374A9.94 9.94 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z" />
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <p class="f-body text-[12.5px] text-white/40 text-center pt-6">© 2026 KRIDANSH Sports Club, Graphic Era Hill
+        University. All rights reserved. · <button id="footer-admin-link"
+          class="underline hover:text-white/70 transition-colors">Admin</button></p>
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <button id="scroll-top"
+    class="fixed bottom-7 right-7 z-40 h-11 w-11 rounded-full flex items-center justify-center text-white shadow-lg bg-royal transition-all duration-300 opacity-0 translate-y-3 pointer-events-none">
+    <i data-lucide="chevron-up" class="w-5 h-5"></i>
+  </button>
+
+  <!-- Admin login modal -->
+  <div id="admin-login-modal"
+    class="fixed inset-0 z-[120] hidden items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+    <div class="bg-white rounded-3xl max-w-sm w-full p-8 relative">
+      <button id="admin-login-close" class="absolute top-5 right-5 text-[#8A93A0] hover:text-charcoal"><i
+          data-lucide="x" class="w-5 h-5"></i></button>
+      <div class="h-11 w-11 rounded-xl flex items-center justify-center bg-royal/10 mb-4">
+        <i data-lucide="lock" class="w-5 h-5 text-royal"></i>
+      </div>
+      <h3 class="f-display font-semibold text-xl mb-1 text-charcoal">Admin Login</h3>
+      <p class="f-body text-sm text-[#8A93A0] mb-6">Only the KRIDANSH council can add or edit events and photos.</p>
+      <form id="admin-login-form" class="space-y-3">
+        <input id="admin-email-input" type="email" placeholder="Admin email" required
+          class="f-body text-sm px-4 py-3 rounded-xl border border-line w-full outline-none focus:border-royal" />
+        <input id="admin-password-input" type="password" placeholder="Password" required
+          class="f-body text-sm px-4 py-3 rounded-xl border border-line w-full outline-none focus:border-royal" />
+        <p id="admin-login-error" class="f-body text-[12.5px] text-red-500 hidden">Could not log in — check your email
+          and password.</p>
+        <button type="submit" id="admin-login-submit"
+          class="ripple f-util text-sm font-bold uppercase tracking-wide px-6 py-3 rounded-full text-white bg-royal w-full">Log
+          In</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Hidden file input used for gallery photo uploads (admin only) -->
+  <input type="file" id="gallery-upload-input" accept="image/*" multiple class="hidden" />
+
+  <!-- Admin mode ribbon (only shown once logged in) -->
+  <div id="admin-ribbon" class="fixed bottom-0 inset-x-0 z-[90] hidden"></div>
+
+  <!-- Supabase client (database + auth + storage + realtime) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- Your project's URL/key — edit config.js, never this file -->
+  <script src="config.js"></script>
+
+  <script src="script.js"></script>
+  <script>
+    document.body.style.overflow = "hidden";
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        const loader = document.getElementById("preloader");
+        if (!loader) return;
+        loader.classList.add("preloader-hide");
+        document.body.style.overflow = "";
+        setTimeout(() => loader.remove(), 500);
+      }, 2400);
+    });
+  </script>
+</body>
+
+</html>
